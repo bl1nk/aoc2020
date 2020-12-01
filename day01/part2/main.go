@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"strconv"
 
 	"github.com/bl1nk/aoc2020/x"
 )
@@ -15,28 +14,15 @@ func main() {
 	lines := x.ReadInput(*input)
 
 	for i, xs := range lines {
-		x, err := strconv.Atoi(xs)
-		if err != nil {
-			panic(err)
-		}
-
+		a := x.MustAtoi(xs)
 		for j := i + 1; j < len(lines); j++ {
-			y, err := strconv.Atoi(lines[j])
-			if err != nil {
-				panic(err)
-			}
-
+			b := x.MustAtoi(lines[j])
 			for k := j + 1; k < len(lines); k++ {
-				z, err := strconv.Atoi(lines[k])
-				if err != nil {
-					panic(err)
-				}
-
-				if x+y+z != 2020 {
+				c := x.MustAtoi(lines[k])
+				if a+b+c != 2020 {
 					continue
 				}
-
-				fmt.Println(x*y*z)
+				fmt.Println(a * b * c)
 			}
 		}
 	}
