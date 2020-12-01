@@ -1,19 +1,19 @@
 package main
 
 import (
+	"flag"
 	"fmt"
-	"io/ioutil"
 	"strconv"
-	"strings"
+
+	"github.com/bl1nk/aoc2020/x"
 )
 
-func main() {
-	b, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		panic(err)
-	}
+var input = flag.String("input", "", "Puzzle input")
 
-	lines := strings.Split(string(b), "\n")
+func main() {
+	flag.Parse()
+	lines := x.ReadInput(*input)
+
 	for i, xs := range lines {
 		x, err := strconv.Atoi(xs)
 		if err != nil {
@@ -30,8 +30,7 @@ func main() {
 				continue
 			}
 
-			fmt.Printf("%d+%d=2020\n", x, y)
-			fmt.Printf("%d*%d=%d\n", x, y, x*y)
+			fmt.Println(x*y)
 		}
 	}
 }
