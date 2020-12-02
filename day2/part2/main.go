@@ -23,16 +23,13 @@ type line struct {
 }
 
 type policy struct {
-	min  int
-	max  int
-	char string
+	first  int
+	second int
+	char   string
 }
 
 func (l *line) valid() bool {
-	if l.password[l.policy.min-1] == l.password[l.policy.max-1] {
-		return false
-	}
-	return string(l.password[l.policy.min-1]) == l.policy.char || string(l.password[l.policy.max-1]) == l.policy.char
+	return string(l.password[l.policy.first-1]) == l.policy.char != (string(l.password[l.policy.second-1]) == l.policy.char)
 }
 
 func readLine(s string) line {
@@ -42,9 +39,9 @@ func readLine(s string) line {
 
 	return line{
 		policy: policy{
-			min:  x.MustAtoi(c[0]),
-			max:  x.MustAtoi(c[1]),
-			char: b[1],
+			first:  x.MustAtoi(c[0]),
+			second: x.MustAtoi(c[1]),
+			char:   b[1],
 		},
 		password: a[1],
 	}
