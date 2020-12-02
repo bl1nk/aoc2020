@@ -15,14 +15,21 @@ func main() {
 	flag.Parse()
 	lines := x.ReadInput(*input)
 
-	for i, xs := range lines {
-		a := x.MustAtoi(xs)
-		for j := i + 1; j < len(lines); j++ {
-			b := x.MustAtoi(lines[j])
-			if a+b != 2020 {
-				continue
+	var entries []int
+	for _, line := range lines {
+		entries = append(entries, x.MustAtoi(line))
+	}
+
+	fmt.Println(solve(entries))
+}
+
+func solve(entries []int) int {
+	for i := range entries {
+		for j := i + 1; j < len(entries); j++ {
+			if 2020-entries[i] == entries[j] {
+				return entries[i] * entries[j]
 			}
-			fmt.Println(a * b)
 		}
 	}
+	return -1
 }
