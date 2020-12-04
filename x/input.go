@@ -1,6 +1,7 @@
 package x
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -16,6 +17,21 @@ func ReadInput(filepath string) []string {
 	}
 
 	return strings.Split(string(b), "\n")
+}
+
+func InputFromPwd() []string {
+	f, err := os.Open("input.txt")
+	if err != nil {
+		panic(err)
+	}
+
+	var lines []string
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+		lines = append(lines, s.Text())
+	}
+
+	return lines
 }
 
 func MustAtoi(s string) int {
