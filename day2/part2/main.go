@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"strings"
 	"time"
@@ -9,12 +8,9 @@ import (
 	"github.com/bl1nk/aoc2020/x"
 )
 
-var input = flag.String("input", "", "Puzzle input")
-
 func main() {
 	defer x.Took(time.Now())
-	flag.Parse()
-	fmt.Println(solve(x.ReadInput(*input)))
+	fmt.Println(solve(x.InputFromPwd()))
 }
 
 type line struct {

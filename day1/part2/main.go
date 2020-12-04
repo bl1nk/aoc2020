@@ -1,19 +1,15 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"time"
 
 	"github.com/bl1nk/aoc2020/x"
 )
 
-var input = flag.String("input", "", "Puzzle input")
-
 func main() {
 	defer x.Took(time.Now())
-	flag.Parse()
-	lines := x.ReadInput(*input)
+	lines := x.InputFromPwd()
 
 	for i, xs := range lines {
 		a := x.MustAtoi(xs)
