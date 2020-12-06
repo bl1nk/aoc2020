@@ -25,7 +25,9 @@ type policy struct {
 }
 
 func (l *line) valid() bool {
-	return string(l.password[l.policy.first-1]) == l.policy.char != (string(l.password[l.policy.second-1]) == l.policy.char)
+	firstMatch := string(l.password[l.policy.first-1]) == l.policy.char
+	secondMatch := string(l.password[l.policy.second-1]) == l.policy.char
+	return firstMatch != secondMatch
 }
 
 func readLine(s string) line {
