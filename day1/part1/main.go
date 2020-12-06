@@ -11,7 +11,7 @@ func main() {
 	defer x.Took(time.Now())
 
 	var entries []int
-	for _, line := range x.InputFromPwd() {
+	for _, line := range x.ReadLines() {
 		entries = append(entries, x.MustAtoi(line))
 	}
 

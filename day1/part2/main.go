@@ -9,7 +9,7 @@ import (
 
 func main() {
 	defer x.Took(time.Now())
-	lines := x.InputFromPwd()
+	lines := x.ReadLines()
 
 	for i, xs := range lines {
 		a := x.MustAtoi(xs)

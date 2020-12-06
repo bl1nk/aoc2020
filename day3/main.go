@@ -22,12 +22,12 @@ func walk(right, down int, input []string) int {
 
 func part1() {
 	defer x.Took(time.Now())
-	fmt.Println(walk(3, 1, x.InputFromPwd()))
+	fmt.Println(walk(3, 1, x.ReadLines()))
 }
 
 func part2() {
 	defer x.Took(time.Now())
-	input := x.InputFromPwd()
+	input := x.ReadLines()
 	fmt.Println(walk(1, 1, input) * walk(3, 1, input) * walk(5, 1, input) * walk(7, 1, input) * walk(1, 2, input))
 }
 

@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func InputFromPwd() []string {
+func ReadLines() []string {
 	f, err := os.Open("input.txt")
 	if err != nil {
 		panic(err)

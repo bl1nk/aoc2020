@@ -10,7 +10,7 @@ import (
 
 func main() {
 	defer x.Took(time.Now())
-	fmt.Println(solve(x.InputFromPwd()))
+	fmt.Println(solve(x.ReadLines()))
 }
 
 type line struct {
